@@ -13,6 +13,7 @@ const Modal = ({share, setToggleModal}: any) => {
         padding: 25,
 
         paddingTop: 35,
+        paddingBottom: 35,
         borderRadius: 14
 
     }
@@ -25,7 +26,7 @@ const Modal = ({share, setToggleModal}: any) => {
     return <div className="card  col w-50" style={customPopup}>
         <div className="row g-0">
             <div className="col-md-5 overflow-hidden">
-                <img src={share.image} alt={share.name}/>
+                <img className='w-100' src={share.image} alt={share.name}/>
             </div>
             <div className="col-md-7" style={alignArticleCenter}>
                 <div className=' d-flex justify-content-end '>

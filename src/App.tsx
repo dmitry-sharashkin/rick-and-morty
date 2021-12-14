@@ -38,17 +38,17 @@ const App: React.FC = () => {
     console.log(data)
 
 
-
     return (
-        <div className="container-sm mt-5">
+        <div className="container-sm ">
             <header className="App-header">
-                <h1>Rick & Morty</h1>
+                <img className='headerLogo'
+                    src='https://occ-0-1722-1723.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUmVLxeatH508rcDIJJz2cyvcGOzvAth5IzI5MrAJKYF_Od9t-t05i6neGRE8GUuTXqK_PwaWrp4PtcgHCq5FcrIJ32JKfRUPc4w.png?r=a66'/>
                 {
                     toggleModal && <Modal setToggleModal={setToggleModal} share={share}/>
                 }
 
             </header>
-            <main>
+            <main className='mt-3'>
 
                 <div className="row row-cols-4   row-cols-md-2 g-4 m-auto">
                     {
@@ -66,7 +66,7 @@ const App: React.FC = () => {
                                     })}> {c.status}</span> <br/>
                                         species: {c.species}<br/>
                                         gender: {c.gender}<br/>
-                                        {c.type ? `type: ${c.type} ` : ''}
+                                        type: {c.type ? `${c.type} ` : ''}
                                     </p>
                                     <button onClick={() => shareChar(index)} className="btn btn-success">Show more
                                     </button>
