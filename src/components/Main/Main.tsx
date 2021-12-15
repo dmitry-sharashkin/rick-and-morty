@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { CharType } from "../../TypeScript/Types";
 
 const Main = ({data,shareChar}:any) => {
-    return<main className='mt-1'>
+    return<main >
 
         <div className="row row-cols-4   row-cols-md-2 g-4 m-auto">
             {

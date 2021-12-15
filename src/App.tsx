@@ -15,6 +15,13 @@ const App: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [toggleModal, setToggleModal] = useState(false)
 
+
+    const [name, setName] = useState('')
+    const [status, setStatus] = useState('')
+    const [species, setSpecies] = useState('')
+    const [type, setType] = useState('')
+    const [gender, setGender] = useState('')
+
     const baseUrl: string = 'https://rickandmortyapi.com/api/character/';
 
     useEffect(() => {
@@ -26,6 +33,26 @@ const App: React.FC = () => {
         })
 
     }, [])
+
+
+    function searchWithFilters() {
+
+        axios.get(baseUrl + `?page=1&name=${name}&status=${status}&species=${species}&type=${type}&gender=${gender}`).then(res => {
+            setData(res.data.results)
+            setInfo(res.data.info)
+            setCurrentPage(1)
+
+        })
+    }
+    function clearFilters() {
+        setName('')
+        setGender('')
+        setType('')
+        setStatus('')
+        setSpecies('')
+
+    }
+
 
     function nextPage() {
         if (info.next === null) {
@@ -54,7 +81,7 @@ const App: React.FC = () => {
         if (p === currentPage) {
             return
         }
-        axios.get(`${baseUrl}?page=${p}`).then(res => {
+        axios.get(`${baseUrl}?page=${p}&name=${name}&status=${status}&species=${species}&type${type}&gender=${gender}`).then(res => {
             setData(res.data.results)
             setInfo(res.data.info)
             setCurrentPage(p)
@@ -66,8 +93,7 @@ const App: React.FC = () => {
         setToggleModal(true)
     }
 
-    console.log(info)
-
+    console.log(data)
 
     return (
         <div className="container-sm ">
@@ -77,14 +103,28 @@ const App: React.FC = () => {
                 {
                     toggleModal && <Modal setToggleModal={setToggleModal} share={share}/>
                 }
-
             </header>
+
+
             <Nav
+                clearFilters={clearFilters}
+                setName={setName}
+                name={name}
+                setGender={setGender}
+                gender={gender}
+                setType={setType}
+                type={type}
+                setSpecies={setSpecies}
+                species={species}
+                searchWithFilters={searchWithFilters}
+                status={status}
+                setStatus={setStatus}
                 info={info}
                 currentPage={currentPage}
                 prevPage={prevPage}
                 changePage={changePage}
                 nextPage={nextPage}/>
+
             <Main data={data} shareChar={shareChar}/>
         </div>
     );

@@ -2,3 +2,14 @@
     max-width: 320px;
     height: auto;
 }
+.filtersDrop__wrap{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.filtersDrop li{
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.filtersWrap{
+    display: flex;
+}
