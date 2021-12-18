@@ -77,7 +77,6 @@ const App: React.FC = () => {
 
     }
 
-    console.log(info)
 
     function nextPage(): void {
         if (info.next === null) {

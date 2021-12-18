@@ -14,8 +14,8 @@ const Main:React.FC< propsType> = ({data, shareChar}) => {
 
         <div className="row row-cols-xl-4   row-cols-md-3  g-4 col-md-offset-2">
             {
-                data.map((c: CharType, index: number) => <div style={{padding:10}}>
-                        <div key={c.id} className="card ">
+                data.map((c: CharType, index: number) => <div  key={c.id} style={{padding:10}}>
+                        <div className="card ">
                             <div className="row ">
                                 <img src={c.image} className="img-fluid rounded-start" alt={c.name}/>
                                 <div className="card-body" style={{padding: '1rem 1.7rem'}}>

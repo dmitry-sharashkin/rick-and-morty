@@ -84,9 +84,9 @@ const Nav: React.FC<PropsType> = ({
                                 })}>&laquo;</span>
                     </button>
                 </li>
-                {pages.map((p: number) => {
+                {pages.map((p: number, index:number) => {
                     if ((p >= currentPage && p < currentPage + 10)) {
-                        return <li key={p} onClick={() => changePage(p)} className={classNames({
+                        return <li key={index} onClick={() => changePage(p)} className={classNames({
                             'page-item': true,
                         })}>
                             <button className={classNames({
@@ -94,10 +94,11 @@ const Nav: React.FC<PropsType> = ({
                                 'bg-success': currentPage === p,
                                 'text-white': currentPage === p,
                                 'text-success': currentPage !== p,
-                            })}>{p}</button>
+                            })}>{p}
+                            </button>
                         </li>
                     } else if ((p > info.pages - 10 && p <= info.pages) && currentPage > info.pages - 10 && currentPage <= info.pages) {
-                        return <li key={p} onClick={() => changePage(p)} className={classNames({
+                        return <li key={index} onClick={() => changePage(p)} className={classNames({
                             'page-item': true,
                         })}>
                             <button className={classNames({

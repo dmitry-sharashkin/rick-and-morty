@@ -27,25 +27,17 @@ const Modal: React.FC<PropsType> = ({share, setToggleModal}) => {
         borderRadius: '14px',
 
     }
-    const alignArticleCenter: CSS.Properties = {
-        paddingLeft: '20',
-        paddingRight: '20',
-        paddingBottom: '20',
-        fontSize: `1.2em`,
-    }
-    return <div className="card  col" style={customPopup}>
-        <div className="row  g-0" style={{
-            overflow: 'auto'
-        }}>
+    return <div className="card modalCard  col" style={customPopup}>
+        <div className="row  g-0" >
             <div className='col-md-12 d-flex justify-content-end '>
                 <button onClick={() => setToggleModal(false)} type="button" className="btn-close"/>
             </div>
             <div className="col-sm-6 overflow-hidden">
-                <img className='w-100' src={share.image} alt={share.name}/>
+                <div className='modalImg__wrap' style={{width:'100%',height:"100%"}}><img className='w-100' src={share.image} alt={share.name}/></div>
                 <p className='card-text'><small
                     className='text-muted'>created: </small>{createdDate[0].replace(/-/g, '.')}</p>
             </div>
-            <div className="col-sm-6" style={alignArticleCenter}>
+            <div className="col-sm-6 articleModalJ" >
                 <h2 className="card-title">{share.name}</h2>
                 <ul className="card-text list-group list-group-flush">
 

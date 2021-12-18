@@ -13,3 +13,26 @@
 .filtersWrap{
     display: flex;
 }
+@media (min-width:580px ) {
+
+    .articleModalJ {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-bottom: 20px;
+        font-size: 1.2em;
+    }
+}
+@media (max-width: 580px) {
+    .modalImg__wrap{
+        margin-top: 15px;
+    }
+    list-group-item{
+        margin-left: 0!important;
+        padding-left: 0!important;
+    }
+    .modalCard{
+        padding: 0;
+        max-height: calc(100vh - 10px);
+        overflow: auto!important;
+    }
+}

@@ -21,13 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="80439769-5b52-45bd-afc9-bcf54ca739da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeScript/Types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TypeScript/Types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Main/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav/FilterDrop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/FilterDrop.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Nav/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav/Nav.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +70,7 @@
       <updated>1639489233337</updated>
       <workItem from="1639489234698" duration="26331000" />
       <workItem from="1639563911960" duration="31556000" />
-      <workItem from="1639833919980" duration="13638000" />
+      <workItem from="1639833919980" duration="17211000" />
     </task>
     <servers />
   </component>
