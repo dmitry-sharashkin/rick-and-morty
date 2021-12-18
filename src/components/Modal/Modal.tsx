@@ -1,36 +1,51 @@
 import React from "react";
 import classNames from "classnames";
+import {CharType} from "../../TypeScript/Types";
+import CSS from 'csstype';
 
-const Modal = ({share, setToggleModal}: any) => {
-    const customPopup: any = {
+type PropsType = {
+    share: CharType,
+    setToggleModal: (b: boolean) => void
+}
+
+const Modal: React.FC<PropsType> = ({share, setToggleModal}) => {
+
+    let createdDate: Array<string> = share.created.split('T')
+
+    const customPopup: CSS.Properties = {
         position: "fixed",
-        minWidth: 280,
+        width: '90%',
+        minWidth: '280px',
+        maxWidth: '870px',
         zIndex: 2,
         top: '50%',
         left: '50%',
         transform: 'translate(-50%,-50%)',
-        padding: 25,
-        paddingTop:25,
-        paddingBottom: 35,
-        borderRadius: 14
+        padding: '25px',
+        paddingTop: '25px',
+        paddingBottom: '35px',
+        borderRadius: '14px',
 
     }
-    const alignArticleCenter: any = {
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingBottom: 20,
+    const alignArticleCenter: CSS.Properties = {
+        paddingLeft: '20',
+        paddingRight: '20',
+        paddingBottom: '20',
         fontSize: `1.2em`,
     }
-    return <div className="card  col w-50" style={customPopup}>
-        <div className="row  g-0">
+    return <div className="card  col" style={customPopup}>
+        <div className="row  g-0" style={{
+            overflow: 'auto'
+        }}>
             <div className='col-md-12 d-flex justify-content-end '>
                 <button onClick={() => setToggleModal(false)} type="button" className="btn-close"/>
             </div>
-            <div className="col-md-5 overflow-hidden">
+            <div className="col-sm-6 overflow-hidden">
                 <img className='w-100' src={share.image} alt={share.name}/>
-                <p className='card-text'><small className='text-muted'>created: {share.created}</small></p>
+                <p className='card-text'><small
+                    className='text-muted'>created: </small>{createdDate[0].replace(/-/g, '.')}</p>
             </div>
-            <div className="col-md-7" style={alignArticleCenter}>
+            <div className="col-sm-6" style={alignArticleCenter}>
                 <h2 className="card-title">{share.name}</h2>
                 <ul className="card-text list-group list-group-flush">
 
@@ -63,8 +78,9 @@ const Modal = ({share, setToggleModal}: any) => {
         </div>
         <div className="col-md-12 mt-3">
             <h3>Episodes</h3>
-            {share.episode.map((ep:string, index:number)=>(index<9)?<span key={index}><a href={ep} className="link-info">{ep}</a> </span>:'')}
-            {(share.episode.length >= 10)?<span className='text-muted'>...</span>:''}
+            {share.episode.map((ep: string, index: number) => (index < 9)
+                ? <span key={index}><a href={ep} className="link-info">{ep}</a> </span> : '')}
+            {(share.episode.length >= 10) ? <span className='text-muted'>...</span> : ''}
         </div>
     </div>
 

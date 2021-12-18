@@ -1,6 +1,14 @@
 import React, {useState} from "react";
 
-const FilterDrop = ({getter, setter, list,header}: any) => {
+
+type PropsType = {
+    list: Array<string>,
+    header: string,
+    getter: string,
+    setter: (s:string) => void,
+}
+
+const FilterDrop: React.FC<PropsType> = ({getter, setter, list, header}) => {
 
     const [toggleFilter, setToggleFilter] = useState(false)
 

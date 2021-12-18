@@ -3,15 +3,39 @@ import './App.css';
 import axios from "axios";
 import Modal from "./components/Modal/Modal";
 import Main from "./components/Main/Main";
-import {CharType} from "./TypeScript/Types";
 import Nav from './components/Nav/Nav';
+import {CharType, InfoType} from "./TypeScript/Types";
 
 const App: React.FC = () => {
-
-    const initialState: CharType | any = {};
+    const initialInfo: InfoType = {
+        count: 0,
+        next: '',
+        prev: '',
+        pages: 0,
+    }
+    const initialShare: CharType  = {
+        created: '',
+        episode: [],
+        gender: '',
+        id: 0,
+        image: '',
+        location: {
+            name: '',
+            url: '',
+        },
+        name: '',
+        origin: {
+            name: '',
+            url: '',
+        },
+        species: '',
+        status: '',
+        type: '',
+        url: '',
+    };
     const [data, setData] = useState([])
-    const [info, setInfo] = useState(initialState)
-    const [share, setShare] = useState(initialState)
+    const [info, setInfo] = useState(initialInfo)
+    const [share, setShare] = useState(initialShare)
     const [currentPage, setCurrentPage] = useState(1)
     const [toggleModal, setToggleModal] = useState(false)
 
@@ -29,13 +53,12 @@ const App: React.FC = () => {
             setData(res.data.results)
             setInfo(res.data.info)
             setCurrentPage(1)
-
         })
 
     }, [])
 
 
-    function searchWithFilters() {
+    function searchWithFilters(): void {
 
         axios.get(baseUrl + `?page=1&name=${name}&status=${status}&species=${species}&type=${type}&gender=${gender}`).then(res => {
             setData(res.data.results)
@@ -44,7 +67,8 @@ const App: React.FC = () => {
 
         })
     }
-    function clearFilters() {
+
+    function clearFilters(): void {
         setName('')
         setGender('')
         setType('')
@@ -53,8 +77,9 @@ const App: React.FC = () => {
 
     }
 
+    console.log(info)
 
-    function nextPage() {
+    function nextPage(): void {
         if (info.next === null) {
             return
         }
@@ -66,7 +91,7 @@ const App: React.FC = () => {
         })
     }
 
-    function prevPage() {
+    function prevPage(): void {
         if (info.prev === null) {
             return
         }
@@ -88,23 +113,24 @@ const App: React.FC = () => {
         })
     }
 
-    function shareChar(index: number) {
+    function shareChar(index: number): void {
         setShare(data[index])
         setToggleModal(true)
     }
 
-    console.log(data)
 
     return (
         <div className="container-sm ">
+
             <header className="App-header">
                 <img alt='HeaderLogo' className='headerLogo'
                      src='https://occ-0-1722-1723.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUmVLxeatH508rcDIJJz2cyvcGOzvAth5IzI5MrAJKYF_Od9t-t05i6neGRE8GUuTXqK_PwaWrp4PtcgHCq5FcrIJ32JKfRUPc4w.png?r=a66'/>
-                {
-                    toggleModal && <Modal setToggleModal={setToggleModal} share={share}/>
-                }
+
             </header>
 
+            {
+                toggleModal && <Modal setToggleModal={setToggleModal} share={share}/>
+            }
 
             <Nav
                 clearFilters={clearFilters}

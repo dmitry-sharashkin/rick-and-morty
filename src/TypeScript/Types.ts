@@ -1,4 +1,3 @@
-
 export type CharType = {
     created: string
     episode: Array<string>
@@ -6,13 +5,13 @@ export type CharType = {
     id: number
     image: string
     location: {
-        name:string
-        url:string
+        name: string
+        url: string
     }
     name: string
     origin: {
-        name:string
-        url:string
+        name: string
+        url: string
     }
     species: string
     status: string
@@ -20,3 +19,9 @@ export type CharType = {
     url: string
 }
 
+export type InfoType = {
+    count: number
+    next: string | null
+    prev: string | null
+    pages: number
+}
